@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Smythe', system-ui;;
+}
+
+header {
+    background-image: url(./images/cover1.webp);
+    background-size: cover;
+    padding: 2.5em 1.5em 0.4em; 
+    color: #fcd557;
+    text-shadow: 0 0 6px #111827;
+}
+
+.border {
+    border-bottom: 2px solid #fff1f2;
+}
+
+h1 {
+    margin: 0;
+    letter-spacing: 1.5px; 
+    font-size: 2.4rem;
+}
+
+.sub-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+}
+
+nav > ul {
+    width: 40%;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    display: flex;
+    gap: 4em;
+}
+
+.menu-sections {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff1f2;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    cursor: default;
+}
+
+.inactive:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
