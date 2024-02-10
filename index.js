@@ -3,12 +3,19 @@ import { rollsArray, drinksArray } from "./data.js";
 const allMenuItems = [...rollsArray, ...drinksArray];
 const menuRolls = document.getElementById('menu-section-rolls');
 const menuDrinks = document.getElementById('menu-section-drinks');
+const cartQty = document.getElementById('cart-items-qty');
 let shoppingCart = [];
 
 const savedCartItems = JSON.parse(localStorage.getItem('cartItems'));
 if (savedCartItems) {
     shoppingCart = savedCartItems;
-}
+};
+
+function displayCartLength() {
+    cartQty.textContent = shoppingCart.length;
+};
+
+displayCartLength();
 
 function renderMenu(arr, element) {
     const htmlString = arr.map(item => {
@@ -25,14 +32,14 @@ function renderMenu(arr, element) {
     }).join('');
 
     element.innerHTML = htmlString;
-}
+};
 
 if (menuRolls) {
     renderMenu(rollsArray, menuRolls);
 };
 
 if (menuDrinks) {
-    renderMenu(drinksArray, menuDrinks)
+    renderMenu(drinksArray, menuDrinks);
 };
 
 function handleClick(e) {
@@ -44,9 +51,9 @@ function handleClick(e) {
         
         shoppingCart.push(targetmenuItem);
         localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
+        displayCartLength();
     };
-}
+};
 
 document.body.addEventListener('click', handleClick);
-
 
