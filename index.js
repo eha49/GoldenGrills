@@ -1,6 +1,7 @@
 import { rollsArray, drinksArray } from "./data.js";
 
 const menuRolls = document.getElementById('menu-section-rolls');
+const menuDrinks = document.getElementById('menu-section-drinks');
 
 function renderMenu(arr, element) {
     const htmlString = arr.map(item => {
@@ -19,4 +20,11 @@ function renderMenu(arr, element) {
     element.innerHTML = htmlString;
 }
 
-renderMenu(rollsArray, menuRolls);
+if (menuRolls) {
+    renderMenu(rollsArray, menuRolls);
+};
+
+if (menuDrinks) {
+    renderMenu(drinksArray, menuDrinks)
+};
+
