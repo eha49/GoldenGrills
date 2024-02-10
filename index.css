@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
     font-family: 'Smythe', system-ui;;
@@ -16,7 +12,7 @@ header {
 }
 
 .border {
-    border-bottom: 2px solid #fff1f2;
+    border-bottom: 2px solid #0e0e0e;
 }
 
 h1 {
@@ -33,24 +29,81 @@ h1 {
 }
 
 nav > ul {
-    width: 40%;
     list-style: none;
     margin: 0;
-    padding-left: 0;
+    padding: 0.3em 0;
     display: flex;
-    gap: 4em;
+    align-items: center;   
 }
 
-.menu-sections {
-    font-size: 1.3rem;
+ul > li:last-child {
+    margin-left: auto;
+    margin-right: 2em;
+}
+
+.menu-section-link {
+    margin-left: 2em;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: #fff1f2;
+    color: #0e0e0e;
     text-decoration: none;
     letter-spacing: 1.5px;
     cursor: default;
 }
 
-.inactive:hover {
+#cart-icon {
+    width: 20px;
+    border: 1px solid red;
+    padding: 0.6em;
+}
+
+.hover:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+.menu-section-item {
+    display: flex;
+    align-items: center;
+    padding: 1.2em 1.5em;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.menu-item-name {
+    margin: 0 0 0.2em;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+}
+
+.menu-item-ingredients,
+.menu-item-price {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.5px;
+}
+
+.menu-item-ingredients {
+    color: #8b8b8b;
+}
+
+.menu-item-price {
+    color: #000;
+    font-size: 1.2rem;
+}
+
+.menu-item-img {
+    width: 50px;
+    margin-right: 1em;
+}
+
+#add-item-btn {
+    color: #3c3c33;
+    font-size: 1.1rem;
+    background-color: inherit;
+    margin-left: auto;
+    border: 1px solid #d2d2d2;
+    padding: 0.5em 1em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }
