@@ -13,7 +13,7 @@ function renderMenu(arr, element) {
                 <p class='menu-item-ingredients'>${item.ingredients.join(', ')}</p>
                 <p class='menu-item-price'>$${item.price}</p>
             </div>
-            <button id='add-item-btn' class='hover'>+</button>
+            <button id='add-item-btn'>+</button>
         </article>`
     }).join('');
 
