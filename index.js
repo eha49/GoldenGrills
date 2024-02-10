@@ -44,7 +44,7 @@ function handleClick(e) {
         
         shoppingCart.push(targetmenuItem);
         localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
-    }
+    };
 }
 
 document.body.addEventListener('click', handleClick);
