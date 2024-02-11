@@ -1,7 +1,6 @@
 import { rollsArray, drinksArray } from "./data.js";
 
 const allMenuItems = [...rollsArray, ...drinksArray];
-localStorage.clear();
 
 function getElement(id) {
     return document.getElementById(id);
@@ -26,7 +25,11 @@ if (savedCartItems) {
 };
 
 function displayCartLength() {
-    cartQty.textContent = shoppingCart.length;
+    if (shoppingCart.length) {
+        cartQty.style.display = 'inline-block';
+        cartQty.textContent = shoppingCart.length;
+    }
+    else { cartQty.style.display = '' };
 };
 
 displayCartLength();

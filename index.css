@@ -64,7 +64,7 @@ ul > li:last-child {
 }
 
 #cart-items-qty {
-    display: inline-block;
+    display: none;
     width: 18px;
     height: 18px;
     border-radius: 50%;
