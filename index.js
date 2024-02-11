@@ -1,10 +1,24 @@
 import { rollsArray, drinksArray } from "./data.js";
 
 const allMenuItems = [...rollsArray, ...drinksArray];
-const menuRolls = document.getElementById('menu-section-rolls');
-const menuDrinks = document.getElementById('menu-section-drinks');
-const cartQty = document.getElementById('cart-items-qty');
+
+
+function getElement(id) {
+    return document.getElementById(id);
+}
+
+const menuRolls = getElement('menu-section-rolls');
+const menuDrinks = getElement('menu-section-drinks');
+const cartQty = getElement('cart-items-qty');
 let shoppingCart = [];
+
+if (menuRolls) {
+    renderMenu(rollsArray, menuRolls);
+};
+
+if (menuDrinks) {
+    renderMenu(drinksArray, menuDrinks);
+};
 
 const savedCartItems = JSON.parse(localStorage.getItem('cartItems'));
 if (savedCartItems) {
@@ -27,33 +41,40 @@ function renderMenu(arr, element) {
                 <p class='menu-item-ingredients'>${item.ingredients.join(', ')}</p>
                 <p class='menu-item-price'>$${item.price}</p>
             </div>
-            <button id='add-item-btn' data-itemid=${item.id}>+</button>
+            <div class='qty-info'>
+                <button data-subbtn=${item.id} class='sub-qty-btn btn'>-</button>
+                <span id='qty-field-${item.id}' class='item-qty'>${item.orderQty}</span>
+                <button data-addbtn=${item.id} class='add-qty-btn btn'>+</button>
+            </div>
+            <button class='add-item-btn btn' data-itemid=${item.id}>+</button>
         </article>`
     }).join('');
 
     element.innerHTML = htmlString;
 };
 
-if (menuRolls) {
-    renderMenu(rollsArray, menuRolls);
-};
-
-if (menuDrinks) {
-    renderMenu(drinksArray, menuDrinks);
-};
-
 function handleClick(e) {
     if (e.target.dataset.itemid) {
         const targetId = e.target.dataset.itemid;
         const targetmenuItem = allMenuItems.filter(item => {
-            return item.id === targetId;
+        return item.id === targetId;
         })[0];
         
         shoppingCart.push(targetmenuItem);
         localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
-        displayCartLength();
+        displayCartLength(); 
     };
+
+    if (e.target.dataset.addbtn) {
+        const targetId = e.target.dataset.addbtn;
+        const targetmenuItem = allMenuItems.filter(item => {
+        return item.id === targetId;
+        })[0];
+
+        getElement(`qty-field-${targetId}`).textContent = `${++targetmenuItem.orderQty}`;
+    }
 };
 
 document.body.addEventListener('click', handleClick);
+
 
