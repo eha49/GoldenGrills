@@ -34,7 +34,6 @@ function renderShoppingCart() {
 
         const htmlString = filteredCart.map(item => {
             return `
-            <h2 class='cart-heading'>Your Order</h2>
             <article class='menu-section-item'>
                  <img src=${item.image} alt='A menu item' class='menu-item-img'>
                  <div class='menu-item-info'>
@@ -46,8 +45,8 @@ function renderShoppingCart() {
                     <span id='qty-field-${item.id}' class='item-qty'>${itemFrequency[item.name]}</span>
                     <button data-addbtn=${item.id} class='add-qty-btn btn'>+</button>
                 </div>
-                <button id='rmv-${item.id}'>Remove</button>
-                <span class='total-item-price'>$${(item.price) * itemFrequency[item.name]}</span>
+                <button id='rmv-${item.id}' class='remove-btn'>Remove</button>
+                <span class='total-price-per-item'>$${(item.price) * itemFrequency[item.name]}</span>
             </article>
             `
         }).join('');

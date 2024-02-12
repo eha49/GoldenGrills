@@ -167,6 +167,10 @@ ul > li:last-child {
 
 /* Cart Section Styling */
 
+#shopping-cart-body {
+    padding: 0 1em 1.2em;
+}
+
 .empty-cart-msg {
     border: 4px solid #fcd557;
     border-radius: 10px;
@@ -191,3 +195,23 @@ ul > li:last-child {
     font-size: 1.3rem;
     margin-bottom: 0;
 }
+
+.remove-btn {
+    background-color: inherit;
+    color: #3c3c33;
+    font-weight: bold;
+    background-color: inherit;
+    border: none;
+    margin-left: 1em;
+}   
+
+.remove-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.total-price-per-item {
+    margin-left: auto;
+    font-weight: bold;
+}
+
