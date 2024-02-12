@@ -98,6 +98,9 @@ function handleQtyUpdation(id, operation) {
 document.body.addEventListener('click', handleClick);
 
 
+export { shoppingCart };
+
+
 // const attemp = {
 //     attempt1: 'Who',
 //     attempt2: 'What',
