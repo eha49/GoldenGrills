@@ -65,17 +65,18 @@ ul > li:last-child {
 
 #cart-items-qty {
     display: none;
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
     background-color: #fcd557;
     text-align: center;
     color: #0e0e0e;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 900;
-    font-size: 0.8em;
+    font-weight: 700;
+    font-size: 0.7em;
+    letter-spacing: -2px;
     position: absolute;
-    top: 3px;
+    top: 0px;
     right: 0;
 }
 
@@ -129,15 +130,6 @@ ul > li:last-child {
     margin-left: 1.4em;
 }
 
-.item-qty {
-    display: inline-block;
-    text-align: center;
-    width: 22px;
-    color: #3c3c33;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.8rem;
-}
-
 .btn {
     color: #3c3c33;
     background-color: inherit;
@@ -167,10 +159,6 @@ ul > li:last-child {
 
 /* Cart Section Styling */
 
-#shopping-cart-body {
-    padding: 0 1em 1.2em;
-}
-
 .empty-cart-msg {
     border: 4px solid #fcd557;
     border-radius: 10px;
@@ -196,6 +184,10 @@ ul > li:last-child {
     margin-bottom: 0;
 }
 
+.qty-bought {
+    margin-left: 3.5em;
+}
+
 .remove-btn {
     background-color: inherit;
     color: #3c3c33;
@@ -213,5 +205,6 @@ ul > li:last-child {
 .total-price-per-item {
     margin-left: auto;
     font-weight: bold;
+    letter-spacing: 0.8px;
 }
 

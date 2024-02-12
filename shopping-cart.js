@@ -1,19 +1,19 @@
 import { shoppingCart } from "./index.js";
+import { displayCartLength } from "./index.js";
 
 const shoppingCartBody = document.getElementById('shopping-cart-body');
-const itemFrequency = {};
-const filteredCart = [];
 
-function countItemsInCart() {
+
+function countItemsInCart(obj) {
         shoppingCart.forEach((item) => {
-            if (itemFrequency[item.name]) {
-                itemFrequency[item.name] += 1;
+            if (obj[item.name]) {
+                obj[item.name] += 1;
             }
-            else { itemFrequency[item.name] = 1 }
+            else { obj[item.name] = 1 }
         });
 };
 
-function removeDuplicatesInCart() {
+function removeDuplicatesInCart(arr) {
     const cartObject = {};
     for (let item of shoppingCart) {
         const cartObjectKey = item.name;
@@ -21,7 +21,7 @@ function removeDuplicatesInCart() {
     }
 
     for (let item in cartObject) {
-        filteredCart.push(cartObject[item]);
+        arr.push(cartObject[item]);
     }
 };
 
@@ -29,20 +29,26 @@ function removeDuplicatesInCart() {
 function renderShoppingCart() {
     if (shoppingCart.length) {
 
-        countItemsInCart();
-        removeDuplicatesInCart();
+        const itemFrequency = {};
+        const filteredCart = [];
+
+        countItemsInCart(itemFrequency);
+        removeDuplicatesInCart(filteredCart);
 
         const htmlString = filteredCart.map(item => {
             return `
+
             <article class='menu-section-item'>
                  <img src=${item.image} alt='A menu item' class='menu-item-img'>
                  <div class='menu-item-info'>
                     <h2 class='menu-item-name'>${item.name}</h2>
-                    <p class='menu-item-price'>$${item.price}</p>
+                    <p class='menu-item-price'>$${item.price}
+                        <span class='qty-bought'>x ${itemFrequency[item.name]}</span>
+                    </p>
+                    
                  </div>
                  <div class='qty-info'>
                     <button data-subbtn=${item.id} class='sub-qty-btn btn'>-</button>
-                    <span id='qty-field-${item.id}' class='item-qty'>${itemFrequency[item.name]}</span>
                     <button data-addbtn=${item.id} class='add-qty-btn btn'>+</button>
                 </div>
                 <button id='rmv-${item.id}' class='remove-btn'>Remove</button>
@@ -64,4 +70,20 @@ function renderShoppingCart() {
     };
 };
 
+function handleClick(e) {
+    if (e.target.dataset.addbtn) {
+        const targetId = e.target.dataset.addbtn;
+        const targetmenuItem = shoppingCart.filter(item => {
+        return item.id === targetId;
+        })[0];
+        shoppingCart.push(targetmenuItem);
+        localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
+        renderShoppingCart();
+        displayCartLength();
+    }
+}
+
 renderShoppingCart();
+
+document.body.addEventListener('click', handleClick);
+
