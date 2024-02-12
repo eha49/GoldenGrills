@@ -99,19 +99,3 @@ document.body.addEventListener('click', handleClick);
 
 
 export { shoppingCart };
-
-
-// const attemp = {
-//     attempt1: 'Who',
-//     attempt2: 'What',
-//     attempt1: 'Who',
-//     attempt3: 'How'
-// }
-
-// let newArr = [];
-
-// for (let i in attemp) {
-//     newArr.push(attemp[i]);
-
-// }
-// console.log(newArr)
