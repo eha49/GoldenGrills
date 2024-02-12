@@ -202,7 +202,7 @@ ul > li:last-child {
     font-weight: bold;
     background-color: inherit;
     border: none;
-    margin-left: 1em;
+    margin-left: 1.4em;
 }   
 
 .remove-btn:hover {
