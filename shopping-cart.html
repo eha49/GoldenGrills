@@ -20,9 +20,11 @@
                 <li>
                     <a href="./index.html" class="menu-section-link hover">Rolls</a>
                 </li>
+
                 <li>
                     <a href="./drinks.html" class="menu-section-link hover">Drinks</a>
                 </li>
+
                 <li class="cart-icon-list-item">
                     <a href="#" class="menu-section-link border">
                         <img src="./images/cart.svg" aria-label="Shopping Cart button" id="cart-icon">
@@ -38,7 +40,7 @@
             <h2 data-closemodal="close" aria-labelledby="Close Payment Modal" class="close-modal-btn">X</h2>
             <h2 class="payment-modal-title">Enter Card Details</h2>
 
-            <form action="#">
+            <form action="#" id="payment-form">
                 <input type="text" name="card-holder-name" id="card-holder-name" placeholder="Enter your name"
                     aria-labelledby="Card User Name" class="modal-input" required>
         
@@ -48,7 +50,7 @@
                 <input type="text" name="card-cvv" id="card-cvv" placeholder="Enter CVV" aria-labelledby="Card CVV"
                     class="modal-input" required>
         
-                <button class="pay-btn" data-paybtn="pay">Pay</button>
+                <button class="pay-btn">Pay</button>
             </form>
         </section>
     </main>

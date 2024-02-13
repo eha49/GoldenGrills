@@ -1,15 +1,23 @@
-import { rollsArray, drinksArray } from "./data.js";
+// Data for the app
 
+import { rollsArray, drinksArray } from "./data.js";
 const allMenuItems = [...rollsArray, ...drinksArray];
+
+// Utility function
 
 function getElement(id) {
     return document.getElementById(id);
 }
 
+// DOM Elements
+
 const menuRolls = getElement('menu-section-rolls');
 const menuDrinks = getElement('menu-section-drinks');
-const cartQty = getElement('cart-items-qty');
+const cartQty = getElement('cart-items-qty'); // UI to display the no. of cart items
+
 let shoppingCart = [];
+
+// Page Rendering function Calls - first checks the page which is currently active
 
 if (menuRolls) {
     renderMenu(rollsArray, menuRolls);
@@ -19,10 +27,14 @@ if (menuDrinks) {
     renderMenu(drinksArray, menuDrinks);
 };
 
+// Logic to fetch data from localStorage, if it exists...
+
 const savedCartItems = JSON.parse(localStorage.getItem('cartItems'));
 if (savedCartItems) {
     shoppingCart = savedCartItems;
 };
+
+// Function to display the number of items in cart
 
 function displayCartLength() {
     if (shoppingCart.length) {
@@ -33,6 +45,8 @@ function displayCartLength() {
 };
  
 displayCartLength();
+
+// Page Rendering function Logic
 
 function renderMenu(arr, element) {
     const htmlString = arr.map(item => {
@@ -51,6 +65,8 @@ function renderMenu(arr, element) {
     element.innerHTML = htmlString;
 };
 
+// Event-handler function which only works if a particular element is clicked
+
 function handleClick(e) {
     if (e.target.dataset.itemid) {
         const targetId = e.target.dataset.itemid;
@@ -64,7 +80,6 @@ function handleClick(e) {
     };
 
 };
-
 
 document.body.addEventListener('click', handleClick);
 
