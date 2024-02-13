@@ -54,41 +54,17 @@ function renderMenu(arr, element) {
 function handleClick(e) {
     if (e.target.dataset.itemid) {
         const targetId = e.target.dataset.itemid;
-        // const qtyEl = getElement(`qty-field-${targetId}`);
-        // const count = +qtyEl.textContent;
         const targetmenuItem = allMenuItems.filter(item => {
         return item.id === targetId;
         })[0];
 
-        // for (let i = 0; i < count; i++) {
-            shoppingCart.push(targetmenuItem);
-        // };
-        
+        shoppingCart.push(targetmenuItem);
         localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
         displayCartLength(); 
     };
 
-    // if (e.target.dataset.addbtn) {
-    //     const targetId = e.target.dataset.addbtn;
-    //     handleQtyUpdation(targetId, 'add');
-    // };
-    
-    // if (e.target.dataset.subbtn) {
-    //     const targetId = e.target.dataset.subbtn;
-    //     handleQtyUpdation(targetId, 'sub');
-    // };
 };
 
-// function handleQtyUpdation(id, operation) {
-//         const qtyEl = getElement(`qty-field-${id}`);
-//         let count = +qtyEl.textContent;
-//     if (operation === 'add') {
-//            qtyEl.textContent = ++count; 
-//     }
-//     else if (operation === 'sub') {
-//          (count > 1) && (qtyEl.textContent = --count); 
-//     }      
-// };
 
 document.body.addEventListener('click', handleClick);
 
@@ -96,8 +72,3 @@ document.body.addEventListener('click', handleClick);
 export { shoppingCart, displayCartLength };
 
 
-{/* <div class='qty-info'>
-                <button data-subbtn=${item.id} class='sub-qty-btn btn'>-</button>
-                <span id='qty-field-${item.id}' class='item-qty'>1</span>
-                <button data-addbtn=${item.id} class='add-qty-btn btn'>+</button>
-            </div> */}

@@ -51,7 +51,7 @@ function renderShoppingCart() {
                     <button data-subbtn=${item.id} class='sub-qty-btn btn'>-</button>
                     <button data-addbtn=${item.id} class='add-qty-btn btn'>+</button>
                 </div>
-                <button id='rmv-${item.id}' class='remove-btn'>Remove</button>
+                <button data-removebtn=${item.id} class='remove-btn'>Remove</button>
                 <span class='total-price-per-item'>$${(item.price) * itemFrequency[item.name]}</span>
             </article>
             `
@@ -81,7 +81,34 @@ function handleClick(e) {
         renderShoppingCart();
         displayCartLength();
     }
-}
+    else if (e.target.dataset.subbtn) {
+        const targetId = e.target.dataset.subbtn;
+        removeCartItem(targetId, 'subbtn');
+    }
+    else if (e.target.dataset.removebtn) {
+        const targetId = e.target.dataset.removebtn;
+        removeCartItem(targetId, 'removebtn');
+    }
+};
+
+function removeCartItem(id, btn) {
+    const sameItemsArray = shoppingCart.filter(item => {
+        return item.id === id;
+    });
+    if (sameItemsArray.length) {
+        if (btn === 'subbtn') {
+            shoppingCart.splice((shoppingCart.indexOf(sameItemsArray[0])), 1);
+        }
+        else if (btn === 'removebtn') {
+            for (let i = 0; i < sameItemsArray.length; i++) {
+                  shoppingCart.splice((shoppingCart.indexOf(sameItemsArray[0])), 1);
+            };
+        };   
+    };
+    localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
+    renderShoppingCart();
+    displayCartLength();
+};
 
 renderShoppingCart();
 
