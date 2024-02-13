@@ -76,7 +76,7 @@ function handleClick(e) {
         const targetmenuItem = shoppingCart.filter(item => {
         return item.id === targetId;
         })[0];
-        shoppingCart.push(targetmenuItem);
+        shoppingCart.splice((shoppingCart.indexOf(targetmenuItem)), 0, targetmenuItem);
         localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
         renderShoppingCart();
         displayCartLength();
