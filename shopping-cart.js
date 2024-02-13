@@ -2,7 +2,8 @@ import { shoppingCart } from "./index.js";
 import { displayCartLength } from "./index.js";
 
 const shoppingCartBody = document.getElementById('shopping-cart-body');
-
+const cartMainSection = document.getElementById('cart-main-section');
+const paymentModal = document.getElementById('payment-info-modal');
 
 function countItemsInCart(obj) {
         shoppingCart.forEach((item) => {
@@ -61,7 +62,7 @@ function renderShoppingCart() {
                 <p class='price-title'>Total Price:</p>
                 <p class='price-amount'>$${calTotalCartPrice(itemFrequency, filteredCart)}</p>
             </div>
-            <button class='submit-order-btn' data-submitbtn='order'>Complete Order</button>
+            <button class='submit-order-btn' data-comporder='order'>Complete Order</button>
             `
  
         shoppingCartBody.innerHTML = htmlString;
@@ -125,7 +126,39 @@ function calTotalCartPrice(obj, arr) {
     return totalPrice;
 };
 
+function handleOrder(e) {
+    if (e.target.dataset.comporder) {
+        paymentModal.style.display = 'block';
+        document.body.removeEventListener('click', handleClick);
+    };
+
+    if (e.target.dataset.closemodal) {
+        paymentModal.style.display = '';
+        document.body.addEventListener('click', handleClick);
+    };
+
+    if (e.target.dataset.paybtn) {
+        e.preventDefault();
+        const htmlString = `
+        <div class='final-modal-msg'>
+            <p>Thanks!</p>
+            <p>Your order is on its way</p>
+       </div>
+       `
+        paymentModal.innerHTML = htmlString;
+        localStorage.clear();
+        shoppingCart.length = 0;
+        displayCartLength();
+
+        setTimeout(() => {
+            paymentModal.style.display = '';
+            renderShoppingCart();
+        }, 2000);
+    };
+};
+
 renderShoppingCart();
 
 document.body.addEventListener('click', handleClick);
+cartMainSection.addEventListener('click', handleOrder);
 

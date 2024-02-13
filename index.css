@@ -246,7 +246,7 @@ ul > li:last-child {
     display: block;
 }
 
-.payment-info-modal {
+#payment-info-modal {
     background-color: #f9fafb;
     width: 95%;
     height: 330px;
@@ -276,7 +276,16 @@ form {
 }
 
 .close-modal-btn {
-    text-align: right;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.close-modal-btn:hover {
+    cursor: pointer;
+    color: #e11d1d; 
 }
 
 .payment-modal-title {
@@ -310,8 +319,7 @@ form {
 
 .remove-btn:hover,
 .submit-order-btn:hover,
-.pay-btn:hover,
-.close-modal-btn:hover {
+.pay-btn:hover {
     cursor: pointer;
     opacity: 0.8;
 }
@@ -346,4 +354,17 @@ form {
     .cart-item-price {
         font-size: 1rem;
     }
+}
+
+.final-modal-msg {
+    width: 90%;
+    margin: 4em auto 0;
+    text-align: center;
+    background-color: #ecfdf5;
+    padding: 1.2em;
+}
+
+.final-modal-msg > p {
+    margin-top: 0;
+    color: #065f46;
 }

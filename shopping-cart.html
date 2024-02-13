@@ -14,7 +14,7 @@
         <h1>Golden Grills</h1>
         <p class="sub-title">The best rolls in town</p>
     </header>
-    <main>
+    <main id="cart-main-section">
         <nav>
             <ul>
                 <li>
@@ -33,23 +33,25 @@
         </nav>
         <h2 class='cart-heading'>Your Order</h2>
         <section id="shopping-cart-body"></section>
+
+        <section id="payment-info-modal">
+            <h2 data-closemodal="close" aria-labelledby="Close Payment Modal" class="close-modal-btn">X</h2>
+            <h2 class="payment-modal-title">Enter Card Details</h2>
+            <form action="#">
+                <input type="text" name="card-holder-name" id="card-holder-name" placeholder="Enter your name"
+                    aria-labelledby="Card User Name" class="modal-input" required>
+        
+                <input type="text" name="card-number" id="card-number" placeholder="Enter card number"
+                    aria-labelledby="Card Number" class="modal-input" required>
+        
+                <input type="text" name="card-cvv" id="card-cvv" placeholder="Enter CVV" aria-labelledby="Card CVV"
+                    class="modal-input" required>
+        
+                <button class="pay-btn" data-paybtn="pay">Pay</button>
+            </form>
+        </section>
     </main>
-    <section class="payment-info-modal">
-        <h2 data-closemodal="close" aria-labelledby="Close Payment Modal" class="close-modal-btn">X</h2>
-        <h2 class="payment-modal-title">Enter Card Details</h2>
-        <form action="#">
-            <input type="text" name="card-holder-name" id="card-holder-name" placeholder="Enter your name"
-                aria-labelledby="Card User Name" class="modal-input" required>
-        
-            <input type="text" name="card-number" id="card-number" placeholder="Enter card number" aria-labelledby="Card Number"
-                class="modal-input" required>
-        
-            <input type="text" name="card-cvv" id="card-cvv" placeholder="Enter CVV" aria-labelledby="Card CVV"
-                class="modal-input" required>
-        
-            <button class="pay-btn" data-paybtn="pay">Pay</button>
-        </form>
-    </section>
+    
     <script src="shopping-cart.js" type="module"></script>
 </body>
 </html>
