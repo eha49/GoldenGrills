@@ -136,7 +136,10 @@ function handleOrder(e) {
         paymentModal.style.display = '';
         document.body.addEventListener('click', handleClick);
     };
+ 
+};
 
+function handlePayment(e) {
     if (e.target.dataset.paybtn) {
         e.preventDefault();
         const htmlString = `
@@ -153,7 +156,7 @@ function handleOrder(e) {
         setTimeout(() => {
             paymentModal.style.display = '';
             renderShoppingCart();
-        }, 2000);
+            }, 2000);
     };
 };
 
@@ -161,4 +164,5 @@ renderShoppingCart();
 
 document.body.addEventListener('click', handleClick);
 cartMainSection.addEventListener('click', handleOrder);
+cartMainSection.addEventListener('submit', handlePayment);
 

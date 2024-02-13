@@ -8,6 +8,19 @@ body {
     background-color: #f5f5f5;
 }
 
+/* Utility Classes */
+
+.border {
+    border-bottom: 2px solid #0e0e0e;
+}
+
+.hover:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Layout */
+
 header {
     background-image: url(./images/cover1.webp);
     background-size: cover;
@@ -20,10 +33,6 @@ header,
 main {
     max-width: 650px;
     margin: 0 auto;
-}
-
-.border {
-    border-bottom: 2px solid #0e0e0e;
 }
 
 h1 {
@@ -56,16 +65,6 @@ ul > li:last-child {
     margin-right: 2em;
 }
 
-.menu-section-link {
-    margin-left: 2em;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #0e0e0e;
-    text-decoration: none;
-    letter-spacing: 1.5px;
-    cursor: default;
-}
-
 .cart-icon-list-item {
     position: relative;
 }
@@ -89,11 +88,6 @@ ul > li:last-child {
     position: absolute;
     top: 0px;
     right: 0;
-}
-
-.hover:hover {
-    opacity: 0.8;
-    cursor: pointer;
 }
 
 .menu-section-item {
@@ -141,6 +135,18 @@ ul > li:last-child {
     border-radius: 50%;
 }
 
+/* Buttons & Links */
+
+.menu-section-link {
+    margin-left: 2em;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #0e0e0e;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    cursor: default;
+}
+
 .btn {
     color: #3c3c33;
     background-color: inherit;
@@ -157,7 +163,7 @@ ul > li:last-child {
 
 .btn:hover {
     cursor: pointer;
-    background-color: #f5f5f5;
+    background-color: #fff
 }
 
 
@@ -196,22 +202,6 @@ ul > li:last-child {
     margin-left: 1.4em;
 }
 
-.add-qty-btn,
-.sub-qty-btn {
-    font-size: 0.6rem;
-    width: 19px;
-    padding: 0.2em 0.6em;
-}
-
-.remove-btn {
-    background-color: inherit;
-    color: #3c3c33;
-    font-weight: bold;
-    background-color: inherit;
-    border: none;
-    margin-left: 1.4em;
-}   
-
 .total-price-per-item {
     margin-left: auto;
     font-weight: bold;
@@ -234,17 +224,6 @@ ul > li:last-child {
     font-size: 1.1rem;
 }
 
-.submit-order-btn {
-    padding: 1em 1.4em;
-    background-color: #16db99;
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: none;
-    margin: 0 auto;
-    display: block;
-}
 
 #payment-info-modal {
     background-color: #f9fafb;
@@ -275,19 +254,6 @@ form {
     justify-content: center;
 }
 
-.close-modal-btn {
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-left: auto;
-}
-
-.close-modal-btn:hover {
-    cursor: pointer;
-    color: #e11d1d; 
-}
-
 .payment-modal-title {
     text-align: center;
     margin-bottom: 1em;
@@ -305,6 +271,49 @@ form {
 .modal-input:focus {
     outline: none;
     border: 2px solid #757575;
+}
+
+/* Buttons */
+
+.add-qty-btn,
+.sub-qty-btn {
+    font-size: 0.6rem;
+    width: 19px;
+    padding: 0.2em 0.6em;
+}
+
+.remove-btn {
+    background-color: inherit;
+    color: #3c3c33;
+    font-weight: bold;
+    background-color: inherit;
+    border: none;
+    margin-left: 1.4em;
+}
+
+.submit-order-btn {
+    padding: 1em 1.4em;
+    background-color: #16db99;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    margin: 0 auto;
+    display: block;
+}
+
+.close-modal-btn {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.close-modal-btn:hover {
+    cursor: pointer;
+    color: #e11d1d;
 }
 
 .pay-btn {
