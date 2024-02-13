@@ -35,9 +35,8 @@ function renderShoppingCart() {
         countItemsInCart(itemFrequency);
         removeDuplicatesInCart(filteredCart);
 
-        const htmlString = filteredCart.map(item => {
+        let htmlString = filteredCart.map(item => {
             return `
-
             <article class='menu-section-item'>
                  <img src=${item.image} alt='A menu item' class='menu-item-img'>
                  <div class='menu-item-info'>
@@ -52,10 +51,17 @@ function renderShoppingCart() {
                     <button data-addbtn=${item.id} class='add-qty-btn btn'>+</button>
                 </div>
                 <button data-removebtn=${item.id} class='remove-btn'>Remove</button>
-                <span class='total-price-per-item'>$${(item.price) * itemFrequency[item.name]}</span>
+                <span class='total-price-per-item'}'>$${(item.price) * itemFrequency[item.name]}</span>
             </article>
             `
         }).join('');
+
+          htmlString += `
+        <div class='total-cart-price'>
+            <span>Total Price:</span>
+            <span>$${calTotalCartPrice(itemFrequency, filteredCart)}</span>
+        </div>
+        `
 
         shoppingCartBody.innerHTML = htmlString;
     }
@@ -108,6 +114,14 @@ function removeCartItem(id, btn) {
     localStorage.setItem('cartItems', JSON.stringify(shoppingCart));
     renderShoppingCart();
     displayCartLength();
+};
+
+function calTotalCartPrice(obj, arr) {
+    let totalPrice = 0;
+    arr.forEach(item => {
+        totalPrice += (item.price * obj[item.name]);
+    })
+    return totalPrice;
 };
 
 renderShoppingCart();

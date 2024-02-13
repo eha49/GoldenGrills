@@ -69,6 +69,6 @@ function handleClick(e) {
 document.body.addEventListener('click', handleClick);
 
 
-export { shoppingCart, displayCartLength };
+export { shoppingCart, displayCartLength, getElement };
 
 
