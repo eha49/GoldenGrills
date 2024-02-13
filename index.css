@@ -92,6 +92,10 @@ ul > li:last-child {
     border-bottom: 1px solid #d2d2d2;
 }
 
+.cart-section-item:last-of-type {
+    border-bottom: 2px solid #fcd557;
+}
+
 .menu-item-info {
     width: 127px;
 }
@@ -196,14 +200,42 @@ ul > li:last-child {
     margin-left: 1.4em;
 }   
 
-.remove-btn:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
-
 .total-price-per-item {
     margin-left: auto;
     font-weight: bold;
     letter-spacing: 0.8px;
 }
 
+.total-cart-price {
+    padding: 1em 1.5em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.2em;
+}
+
+.price-title,
+.price-amount {
+    margin: 0;
+    color: #111827;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    font-size: 1.1rem;
+}
+
+#submit-order {
+    padding: 1em 1.4em;
+    background-color: #16db99;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    margin: 0 auto;
+    display: block;
+}
+
+.remove-btn:hover,
+#submit-order:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

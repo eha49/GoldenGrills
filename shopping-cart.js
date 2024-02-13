@@ -37,7 +37,7 @@ function renderShoppingCart() {
 
         let htmlString = filteredCart.map(item => {
             return `
-            <article class='menu-section-item'>
+            <article class='menu-section-item cart-section-item'>
                  <img src=${item.image} alt='A menu item' class='menu-item-img'>
                  <div class='menu-item-info'>
                     <h2 class='menu-item-name'>${item.name}</h2>
@@ -57,11 +57,12 @@ function renderShoppingCart() {
         }).join('');
 
           htmlString += `
-        <div class='total-cart-price'>
-            <span>Total Price:</span>
-            <span>$${calTotalCartPrice(itemFrequency, filteredCart)}</span>
-        </div>
-        `
+            <div class='total-cart-price'>
+                <p class='price-title'>Total Price:</p>
+                <p class='price-amount'>$${calTotalCartPrice(itemFrequency, filteredCart)}</p>
+            </div>
+            <button id='submit-order'>Complete Order</button>
+            `
 
         shoppingCartBody.innerHTML = htmlString;
     }
