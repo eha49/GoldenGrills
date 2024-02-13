@@ -38,10 +38,10 @@ function renderShoppingCart() {
         let htmlString = filteredCart.map(item => {
             return `
             <article class='menu-section-item cart-section-item'>
-                 <img src=${item.image} alt='A menu item' class='menu-item-img'>
-                 <div class='menu-item-info'>
-                    <h2 class='menu-item-name'>${item.name}</h2>
-                    <p class='menu-item-price'>$${item.price}
+                 <img src=${item.image} alt='A menu item' class='menu-item-img cart-item-img'>
+                 <div class='menu-item-info cart-item-info'>
+                    <h2 class='menu-item-name cart-item-name'>${item.name}</h2>
+                    <p class='menu-item-price cart-item-price'>$${item.price}
                         <span class='qty-bought'>x ${itemFrequency[item.name]}</span>
                     </p>
                     
@@ -61,16 +61,16 @@ function renderShoppingCart() {
                 <p class='price-title'>Total Price:</p>
                 <p class='price-amount'>$${calTotalCartPrice(itemFrequency, filteredCart)}</p>
             </div>
-            <button id='submit-order'>Complete Order</button>
+            <button class='submit-order-btn' data-submitbtn='order'>Complete Order</button>
             `
-
+ 
         shoppingCartBody.innerHTML = htmlString;
     }
     else {
         const htmlString = `
         <section class='empty-cart-msg'>
             <h2 class='cart-heading'>Cart is empty!</h2>
-            <p class='cart-subheading'>Let's go munching</p>
+            <p class='cart-subheading'>Let's go munching</p          >
         </section>
         `
         shoppingCartBody.innerHTML = htmlString;
