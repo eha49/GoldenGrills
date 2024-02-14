@@ -22,7 +22,7 @@ body {
 /* Layout */
 
 header {
-    background-image: url(./images/cover1.webp);
+    background-image: url(./images/cover1.jpg);
     background-size: cover;
     padding: 2.5em 1.5em 0.4em; 
     color: #fcd557;
@@ -163,7 +163,7 @@ ul > li:last-child {
 
 .btn:hover {
     cursor: pointer;
-    background-color: #fff
+    background-color: #d2d2d2;
 }
 
 

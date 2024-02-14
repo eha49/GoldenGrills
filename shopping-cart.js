@@ -1,13 +1,13 @@
 // Resources already defined in previous module
 
 import { shoppingCart } from "./index.js";
-import { displayCartLength } from "./index.js";
+import { displayCartLength, getElement } from "./index.js";
 
 // DOM Elements specific to Cart Page
 
-const shoppingCartBody = document.getElementById('shopping-cart-body');
-const cartMainSection = document.getElementById('cart-main-section');
-const paymentModal = document.getElementById('payment-info-modal');
+const shoppingCartBody = getElement('shopping-cart-body');
+const cartMainSection = getElement('cart-main-section');
+const paymentModal = getElement('payment-info-modal');
 
 // Function logic to find how many times a particular item is in the cart...as the app allows an item to be added to cart repeatedly
 
@@ -148,7 +148,7 @@ function handleOrder(e) {
     };
 
     if (e.target.dataset.closemodal) {
-        document.getElementById('payment-form').reset();
+        getElement('payment-form').reset();
         paymentModal.style.display = '';
         document.body.addEventListener('click', handleClick);
     };

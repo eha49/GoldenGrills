@@ -10,14 +10,14 @@ const rollsArray = [
         name: "Beef Shawarma",
         ingredients: ["Beef", "Cheese", "Lettuce"],
         price: 12,
-        image: "./images/beef-sh.png",
+        image: "./images/beef-sh.jpg",
         id: '1'
     },
     {
         name: "Kebab",
         ingredients: ["Lamb", "Spices", "Veggies"],
         price: 12,
-        image: "./images/kebab.png",
+        image: "./images/kebab.jpg",
         id: '2'
     }
 ];
@@ -34,7 +34,7 @@ const drinksArray = [
         name: "Pepsi",
         ingredients: ["Sugar", "Water", "Caffeine"],
         price: 5,
-        image: "./images/pepsi.jpg",
+        image: "./images/pepsi.png",
         id: '4'
     }
 ];
