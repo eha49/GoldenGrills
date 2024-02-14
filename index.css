@@ -135,10 +135,9 @@ ul > li:last-child {
 }
 
 footer {
-    padding: 1.2em;
+    padding-bottom: 1.2em;
     text-align: center;
     color: #fcd557;
-    background-color: #f3f4f6;
     position: fixed;
     bottom: 0;
     left: 0;
