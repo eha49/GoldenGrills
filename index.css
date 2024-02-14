@@ -124,7 +124,6 @@ ul > li:last-child {
 }
 
 .menu-item-price {
-    color: #000;
     font-size: 1.2rem;
 }
 
@@ -134,6 +133,34 @@ ul > li:last-child {
     aspect-ratio: 1 / 1;
     border-radius: 50%;
 }
+
+footer {
+    padding: 1.2em;
+    text-align: center;
+    color: #fcd557;
+    background-color: #f3f4f6;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-title,
+.footer-copyright {
+    margin: 0;
+}
+
+.footer-title {
+    letter-spacing: 0.8px;
+    font-size: 1.4rem;
+}
+
+.footer-copyright {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+}
+
+
 
 /* Buttons & Links */
 
