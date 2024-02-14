@@ -64,8 +64,8 @@ function renderShoppingCart() {
                 <span class='total-price-per-item'}'>$${(item.price) * itemFrequency[item.name]}</span>
             </article>
             `
-        }).join('');                   // Using the data-* attribute in tags is the key to 
-                                        // using minimum event listeners..can branch the logic inside event handler function
+        }).join('');                  
+                            
           htmlString += `               
             <div class='total-cart-price'>
                 <p class='price-title'>Total Price:</p>
@@ -76,6 +76,9 @@ function renderShoppingCart() {
  
         shoppingCartBody.innerHTML = htmlString;
     }
+
+        // Brancing logic is cart is empty
+    
     else {
         const htmlString = `
         <section class='empty-cart-msg'>
@@ -87,6 +90,8 @@ function renderShoppingCart() {
     };
 };
 
+// Function to handle adding and removing items from the cart.....have to use splice() method to ensure the similar items remain next to each other...
+
 function handleClick(e) {
     if (e.target.dataset.addbtn) {
         const targetId = e.target.dataset.addbtn;
@@ -97,8 +102,8 @@ function handleClick(e) {
     }                                                                                      
     else if (e.target.dataset.subbtn) {                
         const targetId = e.target.dataset.subbtn;       
-        removeCartItem(targetId, 'subbtn');            //Event handler to update the
-    }                                                  //cart using splice()
+        removeCartItem(targetId, 'subbtn');           
+    }                                                  
     else if (e.target.dataset.removebtn) {
         const targetId = e.target.dataset.removebtn;
         removeCartItem(targetId, 'removebtn');
@@ -107,10 +112,12 @@ function handleClick(e) {
         renderShoppingCart();                                
         displayCartLength();  
 };                                                           
-                                                            //Function to remove elements..
-function removeCartItem(id, btn) {                         //Using a for loop to completely
-    const sameItemsArray = shoppingCart.filter(item => {  //remove the item...again using
-        return item.id === id;                             //splice()
+      
+// As removing one by one is a special case of removing completely, so this function handles both the cases depending upon the argument received
+
+function removeCartItem(id, btn) {                         
+    const sameItemsArray = shoppingCart.filter(item => {  
+        return item.id === id;                            
     });
     if (sameItemsArray.length) {
         if (btn === 'subbtn') {
@@ -119,8 +126,8 @@ function removeCartItem(id, btn) {                         //Using a for loop to
         else if (btn === 'removebtn') {
             for (let i = 0; i < sameItemsArray.length; i++) {
                   shoppingCart.splice((shoppingCart.indexOf(sameItemsArray[0])), 1);
-            };                                   // Have to render everytime cart is
-        };                                     //updated
+            };                                  
+        };                                     
     };
 };                                                       
 
@@ -131,6 +138,8 @@ function calTotalCartPrice(obj, arr) {
     })
     return totalPrice;
 };
+
+// Function to handle clicking on the complete order button...have to disable the event handler  (and then add it back) on the body to prevent any further change in the cart
 
 function handleOrder(e) {                                        
     if (e.target.dataset.comporder) {                                
@@ -145,6 +154,8 @@ function handleOrder(e) {
     };
  
 };
+
+// Seperate event handler to handle the submit action on the form element 
 
 function handlePayment(e) {
     e.preventDefault();
